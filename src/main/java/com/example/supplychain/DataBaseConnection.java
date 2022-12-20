@@ -35,19 +35,19 @@ public class DataBaseConnection {
         return null;
     }
 
-    public static void main(String[] args) {
-
-        DataBaseConnection dataBaseConnection = new DataBaseConnection();
-
-        ResultSet rs = dataBaseConnection.getQueryTable("SELECT email, first_name, last_name, city, mobile_no FROM CUSTOMER");
-
-        try {
-            while (rs.next()){
-                System.out.println(rs.getString("email")+" "+rs.getString("first_name")+" "+rs.getString("last_name")+" "+rs.getString("city")+" "+rs.getString("mobile_no"));
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//
+//        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+//
+//        ResultSet rs = dataBaseConnection.getQueryTable("SELECT email, first_name, last_name, city, mobile_no FROM CUSTOMER");
+//
+//        try {
+//            while (rs.next()){
+//                System.out.println(rs.getString("email")+" "+rs.getString("first_name")+" "+rs.getString("last_name")+" "+rs.getString("city")+" "+rs.getString("mobile_no"));
+//            }
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }
