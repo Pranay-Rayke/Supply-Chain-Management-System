@@ -3,7 +3,6 @@ package com.example.supplychain;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class SupplyChain extends Application {
 
     public static int width = 700, height = 600, headerBar = 50;
 
@@ -31,7 +30,7 @@ public class HelloApplication extends Application {
         gridPane.setMinSize(bodyPane.getMinWidth(),headerBar-10);
         gridPane.setVgap(5);
         gridPane.setHgap(5);
-//        gridPane.setStyle("-fx-background-color : #C0C0C0");
+//      gridPane.setStyle("-fx-background-color : #C0C0C0");
         gridPane.setAlignment(Pos.CENTER);
 
         gridPane.add(searchText,0,0);
