@@ -43,4 +43,35 @@ public class ProductDetails {
         return tablePane;
     }
 
+    public Pane getProductsByName(String productName){
+
+        TableColumn id = new TableColumn("ID");
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn name = new TableColumn("NAME");
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn price = new TableColumn("PRICE");
+        price.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+//        ObservableList<Product> data = FXCollections.observableArrayList();
+//
+//        data.add(new Product(1, "Lenovo", 15000));
+//        data.add(new Product(2, "Redmi", 10000));
+        ObservableList<Product> products = Product.getProductsByName(productName);
+
+        productTable = new TableView <>();
+        productTable.setItems(products);
+        productTable.getColumns().addAll(id, name, price);
+        productTable.setMinSize(SupplyChain.width, SupplyChain.height);
+        productTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        Pane tablePane = new Pane();
+        tablePane.setStyle("-fx-background-color : #C0C0C0");
+        tablePane.setMinSize(SupplyChain.width, SupplyChain.height);
+        tablePane.getChildren().add(productTable);
+
+        return tablePane;
+    }
+
 }

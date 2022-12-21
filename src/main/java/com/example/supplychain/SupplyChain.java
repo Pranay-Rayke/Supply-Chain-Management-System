@@ -27,10 +27,21 @@ public class SupplyChain extends Application {
 
 
 
+
+
     private GridPane headerBar(){
 
         TextField searchText = new TextField();
         Button searchButton = new Button("Search");
+        searchButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String productName = searchText.getText();
+                //clear body and put this new pane in the body
+                bodyPane.getChildren().clear();
+                bodyPane.getChildren().add(productDetatils.getProductsByName(productName));
+            }
+        });
 
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(bodyPane.getMinWidth(),headerBar-10);
