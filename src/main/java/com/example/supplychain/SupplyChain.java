@@ -17,9 +17,15 @@ import java.io.IOException;
 
 public class SupplyChain extends Application {
 
-    public static int width = 700, height = 600, headerBar = 50;
+    public static int width = 700, height = 500, headerBar = 50;
 
     Pane bodyPane = new Pane();
+
+    Login login = new Login();
+
+    ProductDetails productDetatils = new ProductDetails();
+
+
 
     private GridPane headerBar(){
 
@@ -56,8 +62,13 @@ public class SupplyChain extends Application {
 
                 String email = emailTextField.getText();
                 String password = passwordField.getText();
-                messageLabel.setText(email + " $$ " + password);
-
+                //messageLabel.setText(email + " $$ " + password);
+                if(login.customerLogin(email,password)){
+                    messageLabel.setText("Login Successful");
+                }
+                else{
+                    messageLabel.setText("Invalid email or password");
+                }
             }
         });
 
@@ -82,8 +93,8 @@ public class SupplyChain extends Application {
         root.setPrefSize(width,height+headerBar);
         bodyPane.setMinSize(width,height);
         bodyPane.setTranslateY(headerBar);
-        bodyPane.getChildren().addAll(loginPage());
-        root.getChildren().addAll(headerBar() ,bodyPane);
+        bodyPane.getChildren().addAll(productDetatils.getAllProducts());
+        root.getChildren().addAll(headerBar() , bodyPane);
         return root;
     }
     @Override
