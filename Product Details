@@ -54,10 +54,7 @@ public class ProductDetails {
         TableColumn price = new TableColumn("PRICE");
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-//        ObservableList<Product> data = FXCollections.observableArrayList();
-//
-//        data.add(new Product(1, "Lenovo", 15000));
-//        data.add(new Product(2, "Redmi", 10000));
+
         ObservableList<Product> products = Product.getProductsByName(productName);
 
         productTable = new TableView <>();
