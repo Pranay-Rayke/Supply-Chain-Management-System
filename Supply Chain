@@ -58,7 +58,7 @@ public class SupplyChain extends Application {
             }
         });
 
-        customerEmailLabel = new Label("Welcome Back User");
+        customerEmailLabel = new Label("Welcome User!");
 
         GridPane gridPane = new GridPane();
         gridPane.setMinSize(bodyPane.getMinWidth(),headerBar-10);
@@ -80,7 +80,7 @@ public class SupplyChain extends Application {
 
         Label emailLabel = new Label("Email");
         Label passwordLabel = new Label("Password");
-        Label messageLabel = new Label("I am message");
+        Label messageLabel = new Label("Hello User!");
 
         TextField emailTextField = new TextField();
         PasswordField passwordField = new PasswordField();
@@ -126,7 +126,7 @@ public class SupplyChain extends Application {
 
     private GridPane footerBar(){
 
-        Button addToCartButton = new Button("Add to cart");
+        //Button addToCartButton = new Button("Add to cart");
         Button buyNowButton = new Button("Buy Now");
 
         Label messageLabel = new Label("");
@@ -153,9 +153,9 @@ public class SupplyChain extends Application {
         gridPane.setAlignment(Pos.CENTER);
         gridPane.setTranslateY(headerBar+height+5);
 
-        gridPane.add(addToCartButton,0,0);
-        gridPane.add(buyNowButton,1,0);
-        gridPane.add(messageLabel,2,0);
+        //gridPane.add(addToCartButton,0,0);
+        gridPane.add(buyNowButton,0,0);
+        gridPane.add(messageLabel,1,0);
         return gridPane;
 
     }
@@ -174,7 +174,7 @@ public class SupplyChain extends Application {
     public void start(Stage stage) throws IOException {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(createContent());
-        stage.setTitle("Hello!");
+        stage.setTitle("Mini Flipkart !");
         stage.setScene(scene);
         stage.show();
     }
