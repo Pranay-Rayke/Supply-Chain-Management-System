@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -81,7 +83,6 @@ public class SupplyChain extends Application {
         gridPane.setHgap(7);
         gridPane.setStyle("-fx-background-color : orange");
         gridPane.setAlignment(Pos.CENTER);
-
         gridPane.add(searchText,0,0);
         gridPane.add(searchButton,1,0);
         gridPane.add(globalLoginButton,2,0);
@@ -144,11 +145,16 @@ public class SupplyChain extends Application {
 
         Label firstName = new Label("First Name");
         Label lastName = new Label("Last Name");
+        Label city = new Label("City");
+        Label mobileNumber = new Label("Mobile No.");
         Label userEmail = new Label("Email");
         Label userPassword = new Label("Password");
+        Label messageLabel = new Label("Hello User");
 
         TextField firstNameTextField = new TextField();
         TextField lastNameTextField = new TextField();
+        TextField cityTextField = new TextField();
+        TextField mobileNumberTextField = new TextField();
         TextField emailTextField = new TextField();
         TextField passwordField = new PasswordField();
 
@@ -159,10 +165,20 @@ public class SupplyChain extends Application {
             public void handle(ActionEvent actionEvent) {
                 String firstName = firstNameTextField.getText();
                 String lastName = lastNameTextField.getText();
+                String city = cityTextField.getText();
+                String mobileNumber = mobileNumberTextField.getText();
                 String userEmail = emailTextField.getText();
                 String userPassword = passwordField.getText();
 
+                if (SignUp.customerSignUp(firstName, lastName, city, mobileNumber, userEmail, userPassword)) {
+                    messageLabel.setText("Sign Up Successful");
+                    globalLoginButton.setDisable(true);
+                } else {
+                    messageLabel.setText("Invalid Details");
+                }
+
             }
+
         });
 
 
@@ -176,12 +192,16 @@ public class SupplyChain extends Application {
         gridPane.add(firstNameTextField,1,0);
         gridPane.add(lastName,0,1);
         gridPane.add(lastNameTextField,1,1);
-        gridPane.add(userEmail,0,2);
-        gridPane.add(emailTextField,1,2);
-        gridPane.add(userPassword,0,3);
-        gridPane.add(passwordField,1,3);
+        gridPane.add(city,0,2);
+        gridPane.add(cityTextField,1,2);
+        gridPane.add(mobileNumber,0,3);
+        gridPane.add(mobileNumberTextField,1,3);
+        gridPane.add(userEmail,0,4);
+        gridPane.add(emailTextField,1,4);
+        gridPane.add(userPassword,0,5);
+        gridPane.add(passwordField,1,5);
         gridPane.add(signUp,1,6);
-        //gridPane.add(messageLabel,1,4);
+        gridPane.add(messageLabel,1,7);
         return gridPane;
     }
 
