@@ -36,7 +36,7 @@ public class ProductDetails {
         productTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         Pane tablePane = new Pane();
-        tablePane.setStyle("-fx-background-color : #C0C0C0");
+        //tablePane.setStyle("-fx-background-color : blue");
         tablePane.setMinSize(SupplyChain.width, SupplyChain.height);
         tablePane.getChildren().add(productTable);
 
@@ -54,10 +54,7 @@ public class ProductDetails {
         TableColumn price = new TableColumn("PRICE");
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-//        ObservableList<Product> data = FXCollections.observableArrayList();
-//
-//        data.add(new Product(1, "Lenovo", 15000));
-//        data.add(new Product(2, "Redmi", 10000));
+
         ObservableList<Product> products = Product.getProductsByName(productName);
 
         productTable = new TableView <>();
@@ -67,11 +64,23 @@ public class ProductDetails {
         productTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         Pane tablePane = new Pane();
-        tablePane.setStyle("-fx-background-color : #C0C0C0");
+        //tablePane.setStyle("-fx-background-color : #C0C0C0");
         tablePane.setMinSize(SupplyChain.width, SupplyChain.height);
         tablePane.getChildren().add(productTable);
 
         return tablePane;
+    }
+
+    public Product getSelectedProduct(){
+
+        try {
+            Product selectedProduct = productTable.getSelectionModel().getSelectedItem();
+            return selectedProduct;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

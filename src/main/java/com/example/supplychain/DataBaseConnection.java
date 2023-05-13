@@ -6,7 +6,7 @@ import java.util.SortedMap;
 
 public class DataBaseConnection {
 
-    public static final String databaseUrl = "jdbc:mysql://localhost:3306/supply_chain";  //schema name
+    public static final String databaseUrl = "jdbc:mysql://localhost:3306/supply_chain";
     public static final String userName = "root";
     public static final String password = "Pranay@123";
 
@@ -33,6 +33,17 @@ public class DataBaseConnection {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int executeUpdateQuery(String query){
+        Statement statement = getStatement();
+        try {
+            return statement.executeUpdate(query);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 //    public static void main(String[] args) {

@@ -31,7 +31,7 @@ public class Login {
         return null;
     }
     public boolean customerLogin(String email, String password){
-        String query = String.format("SELECT * FROM customer WHERE email = '%s' AND password = '%s' ",email,password);
+        String query = String.format("SELECT * FROM customer WHERE email = '%s' AND password = '%s'",email,password);
 
         try{
             DataBaseConnection dataBaseConnection = new DataBaseConnection();
